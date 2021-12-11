@@ -1,5 +1,5 @@
 {
-    "name": "oat-sa/extension-tao-task-queue",
+    "name": "openthinklabs/extension-tao-task-queue",
     "description": "TAO specific Task Queue with custom GUI",
     "authors": [
         {
