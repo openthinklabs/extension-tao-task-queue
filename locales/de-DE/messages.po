@@ -1,0 +1,102 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: tao-open-source\n"
+"PO-Revision-Date: 2023-12-04 16:26\n"
+"Last-Translator: TAO Translation Team <translation@tao.lu>\n"
+"MIME-Version: 1.0\n"
+"Language: de\n"
+"sourceLanguage: en-US\n"
+"targetLanguage: en-US\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Basepath: ../../\n"
+"X-Poedit-KeywordsList: __\n"
+"X-Poedit-SearchPath-0: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Crowdin-Project: tao-open-source\n"
+"X-Crowdin-Project-ID: 590867\n"
+"X-Crowdin-Language: de\n"
+"X-Crowdin-File: /[oat-sa.extension-tao-task-queue] develop/locales/en-US/messages.po\n"
+"X-Crowdin-File-ID: 679\n"
+"Language-Team: German\n"
+
+msgid "Background tasks"
+msgstr "Hintergrundaufgaben"
+
+msgid "Clear all finished"
+msgstr "Alle abgeschlossenen löschen"
+
+msgid "Clear all finished tasks"
+msgstr "Alle erledigten Aufgaben löschen"
+
+msgid "close report"
+msgstr "Bericht schließen"
+
+msgid "Completed"
+msgstr "Abgeschlossen"
+
+msgid "Completed %s"
+msgstr "%s abgeschlossen"
+
+msgid "download"
+msgstr "Download"
+
+msgid "Executing task %s failed"
+msgstr "Die Ausführung der Aufgabe %s ist fehlgeschlagen"
+
+msgid "Failed"
+msgstr "Fehlgeschlagen"
+
+msgid "Failed %s"
+msgstr "Fehlgeschlagen %s"
+
+msgid "go to resource"
+msgstr "Gehe zur Ressource"
+
+msgid "In Progress"
+msgstr "In Bearbeitung"
+
+msgid "No report available"
+msgstr "Kein Bericht verfügbar"
+
+msgid "notify me when done"
+msgstr "Benachrichtigen Sie mich, wenn abgeschlossen"
+
+msgid "Queued"
+msgstr "In Warteschlange"
+
+msgid "remove"
+msgstr "entfernen"
+
+msgid "Resource is not the task placeholder"
+msgstr "Die Ressource ist nicht der Aufgabenplatzhalter"
+
+msgid "Running task %s"
+msgstr "Aufgabe %s wird ausgeführt"
+
+msgid "see report"
+msgstr "siehe Bericht"
+
+msgid "Started %s"
+msgstr "%s gestartet"
+
+msgid "Task is in \\'%s\\' state"
+msgstr "Die Aufgabe befindet sich im Status \\'%s\\'"
+
+msgid "Task not returned any report."
+msgstr "Die Aufgabe hat keinen Bericht zurückgegeben."
+
+#, tao-public
+msgid "Task Queue"
+msgstr "Aufgabenwarteschlange"
+
+#, tao-public
+msgid "taskqueue"
+msgstr "Aufgabenwarteschlange"
+
+msgid "The list is currently empty."
+msgstr "Die Liste ist derzeit leer."
+
+msgid "There is currently no background task"
+msgstr "Derzeit gibt es keine Hintergrundaufgabe."
+

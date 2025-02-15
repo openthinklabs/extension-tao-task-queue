@@ -35,7 +35,7 @@ use oat\tao\model\taskQueue\Task\TaskInterface;
 class SqsQueueBroker extends AbstractQueueBroker
 {
     public const DEFAULT_AWS_CLIENT_KEY = 'generis/awsClient';
-    public const ID ='sqs';
+    public const ID = 'sqs';
 
     private $cacheId;
 
@@ -83,7 +83,10 @@ class SqsQueueBroker extends AbstractQueueBroker
     {
         if (is_null($this->client)) {
             if (!$this->getServiceLocator()->has(self::DEFAULT_AWS_CLIENT_KEY)) {
-                throw new \RuntimeException('Unable to load driver for ' . __CLASS__ . ', most likely generis/awsClient.conf.php does not exist.');
+                throw new \RuntimeException(
+                    'Unable to load driver for ' . __CLASS__
+                        . ', most likely generis/awsClient.conf.php does not exist.'
+                );
             }
 
             /** @var AwsClient $awsClient */
@@ -114,7 +117,8 @@ class SqsQueueBroker extends AbstractQueueBroker
     {
         try {
             // Note: we are creating a Standard Queue for the time being.
-            // More development needed to be able to customize it, for example creating FIFO Queue or setting attributes from outside.
+            // More development needed to be able to customize it, for example creating FIFO Queue or setting attributes
+            // from outside.
             /** @see http://docs.aws.amazon.com/aws-sdk-php/v3/api/api-sqs-2012-11-05.html#createqueue */
             $result = $this->getClient()->createQueue([
                 'QueueName' => $this->getQueueNameWithPrefix(),
@@ -134,7 +138,9 @@ class SqsQueueBroker extends AbstractQueueBroker
                 $this->logError('Queue ' . $this->getQueueNameWithPrefix() . ' not created');
             }
         } catch (AwsException $e) {
-            $this->logError('Creating queue ' . $this->getQueueNameWithPrefix() . ' failed with MSG: ' . $e->getMessage());
+            $this->logError(
+                'Creating queue ' . $this->getQueueNameWithPrefix() . ' failed with MSG: ' . $e->getMessage()
+            );
 
             if (PHP_SAPI == 'cli') {
                 throw $e;
@@ -205,7 +211,7 @@ class SqsQueueBroker extends AbstractQueueBroker
                 'WaitTimeSeconds' => 20 //retrieving messages with Long Polling
             ]);
 
-            if (count($result->get('Messages')) > 0) {
+            if (is_array($result->get('Messages')) && count($result->get('Messages')) > 0) {
                 $this->logDebug('Received ' . count($result->get('Messages')) . ' messages.', $logContext);
 
                 foreach ($result->get('Messages') as $message) {
@@ -267,10 +273,7 @@ class SqsQueueBroker extends AbstractQueueBroker
         }
     }
 
-    /**
-     * @return int
-     */
-    public function count()
+    public function count(): int
     {
         // ensures that the SQS Queue exist
         if (!$this->queueExists()) {
@@ -328,7 +331,10 @@ class SqsQueueBroker extends AbstractQueueBroker
                 return true;
             }
         } catch (AwsException $e) {
-            $this->logWarning('Fetching queue url for ' . $this->getQueueNameWithPrefix() . ' failed. MSG: ' . $e->getAwsErrorMessage());
+            $this->logWarning(
+                'Fetching queue url for ' . $this->getQueueNameWithPrefix() . ' failed. MSG: '
+                    . $e->getAwsErrorMessage()
+            );
         }
 
         return false;

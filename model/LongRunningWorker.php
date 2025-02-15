@@ -35,8 +35,8 @@ use oat\tao\model\taskQueue\Worker\AbstractWorker;
  */
 final class LongRunningWorker extends AbstractWorker
 {
-    const WAIT_INTERVAL = 1; // sec
-    const MAX_SLEEPING_TIME_FOR_DEDICATED_QUEUE = 30; //max sleeping time if working on only one queue
+    public const WAIT_INTERVAL = 1; // sec
+    public const MAX_SLEEPING_TIME_FOR_DEDICATED_QUEUE = 30; //max sleeping time if working on only one queue
 
     private $maxIterations = 0; //0 means infinite iteration
     private $iterations = 0;
@@ -72,7 +72,7 @@ final class LongRunningWorker extends AbstractWorker
     public function run()
     {
         $this->registerSigHandlers();
-        $this->logInfo('Starting LongRunningWorker.', $this->getLogContext());
+        $this->logDebug('Starting LongRunningWorker.', $this->getLogContext());
 
         while ($this->isRunning()) {
             if ($this->paused) {
@@ -102,7 +102,11 @@ final class LongRunningWorker extends AbstractWorker
                 $this->iterationsWithOutTask = 0;
 
                 if (!$task instanceof TaskInterface) {
-                    $this->logWarning('The received queue item (' . $task . ') not processable.', $this->getLogContext());
+                    $this->logWarning(
+                        'The received queue item (' . $task . ') not processable.',
+                        $this->getLogContext()
+                    );
+
                     continue;
                 }
 
@@ -110,12 +114,16 @@ final class LongRunningWorker extends AbstractWorker
 
                 unset($task);
             } catch (\Exception $e) {
-                $this->logError('Fetching data from queue failed with MSG: ' . $e->getMessage(), $this->getLogContext());
+                $this->logError(
+                    'Fetching data from queue failed with MSG: ' . $e->getMessage(),
+                    $this->getLogContext()
+                );
+
                 continue;
             }
         }
 
-        $this->logInfo('LongRunningWorker finished.', $this->getLogContext());
+        $this->logDebug('LongRunningWorker finished.', $this->getLogContext());
     }
 
     /**
@@ -146,7 +154,7 @@ final class LongRunningWorker extends AbstractWorker
         }
 
         if ($this->maxIterations > 0) {
-            return $this->iterations < $this->maxIterations;
+            return $this->iterations < $this->maxIterations && $this->hasEnoughSpace();
         }
 
         return true;
@@ -177,7 +185,7 @@ final class LongRunningWorker extends AbstractWorker
 
             $this->sigHandlersRegistered = true;
 
-            $this->logInfo('Finished setting up signal handlers', $this->getLogContext());
+            $this->logDebug('Finished setting up signal handlers', $this->getLogContext());
         }
     }
 
@@ -215,5 +223,16 @@ final class LongRunningWorker extends AbstractWorker
         } else {
             return self::WAIT_INTERVAL;
         }
+    }
+
+    private function hasEnoughSpace(): bool
+    {
+        if ($this->iterationsWithOutTask || $this->queuer->hasPreFetchedMessages()) {
+            return true;
+        }
+
+        $freeSpace = $this->maxIterations - $this->iterations;
+
+        return $freeSpace >= $this->queuer->getNumberOfTasksToReceive();
     }
 }

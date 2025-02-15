@@ -1,0 +1,102 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: tao-open-source\n"
+"PO-Revision-Date: 2023-12-04 16:26\n"
+"Last-Translator: TAO Translation Team <translation@tao.lu>\n"
+"MIME-Version: 1.0\n"
+"Language: ar\n"
+"sourceLanguage: en-US\n"
+"targetLanguage: en-US\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Basepath: ../../\n"
+"X-Poedit-KeywordsList: __\n"
+"X-Poedit-SearchPath-0: .\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+"X-Crowdin-Project: tao-open-source\n"
+"X-Crowdin-Project-ID: 590867\n"
+"X-Crowdin-Language: ar\n"
+"X-Crowdin-File: /[oat-sa.extension-tao-task-queue] develop/locales/en-US/messages.po\n"
+"X-Crowdin-File-ID: 679\n"
+"Language-Team: Arabic\n"
+
+msgid "Background tasks"
+msgstr "مهام الخلفية"
+
+msgid "Clear all finished"
+msgstr "مسح كل شيء انتهى"
+
+msgid "Clear all finished tasks"
+msgstr "مسح جميع المهام المنتهية"
+
+msgid "close report"
+msgstr "اغلق التقرير"
+
+msgid "Completed"
+msgstr "مكتمل"
+
+msgid "Completed %s"
+msgstr "مكتمل %s"
+
+msgid "download"
+msgstr "تَنْزيل"
+
+msgid "Executing task %s failed"
+msgstr "فشل تنفيذ المهمة %s"
+
+msgid "Failed"
+msgstr "فشل"
+
+msgid "Failed %s"
+msgstr "فشل %s"
+
+msgid "go to resource"
+msgstr "اذهب إلى المورد"
+
+msgid "In Progress"
+msgstr "في تقدم"
+
+msgid "No report available"
+msgstr "لا يتوفر أي تقرير"
+
+msgid "notify me when done"
+msgstr "أخبرني عند الانتهاء"
+
+msgid "Queued"
+msgstr "في قائمة الانتظار"
+
+msgid "remove"
+msgstr "إزالة"
+
+msgid "Resource is not the task placeholder"
+msgstr "المورد ليس العنصر النائب للمهمة"
+
+msgid "Running task %s"
+msgstr "تشغيل المهمة %s"
+
+msgid "see report"
+msgstr "انظر التقرير"
+
+msgid "Started %s"
+msgstr "بدأ %s"
+
+msgid "Task is in \\'%s\\' state"
+msgstr "المهمة في حالة \\'%s\\'"
+
+msgid "Task not returned any report."
+msgstr "لم تُرجع المهمة أي تقرير."
+
+#, tao-public
+msgid "Task Queue"
+msgstr "قائمة انتظار المهام"
+
+#, tao-public
+msgid "taskqueue"
+msgstr "قائمة انتظار المهام"
+
+msgid "The list is currently empty."
+msgstr "القائمة فارغة حاليا."
+
+msgid "There is currently no background task"
+msgstr "لا توجد مهمة خلفية حاليا"
+
